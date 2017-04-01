@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UFT-8"?>
+<project name="this is a sample cpde" basefile="." default="run">
+<target name="run">
+<mkdir dir="vijay"/>
+<javac srcdir="src" destdir="vijay" includeantruntime="false"/>
+</target>
+</project>

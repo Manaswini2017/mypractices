@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="examplefile2" default="1">
+<target name="6">
+<delete dir="prasad"/>
+</target>
+<target name="5" depends="6">
+<delete dir="sarath"/>
+</target>
+ <target name="4" depends="5">
+  <mkdir dir="prasad"/>
+  <javac srcdir="src" destdir="prasad" includeantruntime="false"/>
+ </target>
+ <target name="3" depends="4">
+  <mkdir dir="sarath"/>
+  <javac srcdir="src" destdir="sarath" includeantruntime="false"/>
+ </target>
+ <target name="2" depends="3">
+       <mkdir dir="build/classes"/>
+        <jar destfile="build/jar/MyHelloWorld.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="new"/>
+            </manifest>
+        </jar>
+    </target>
+	<target name="1" depends="2">
+        <java jar="build/jar/MyHelloWorld.jar" fork="true"/>
+    </target>
+</project>
